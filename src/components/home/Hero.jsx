@@ -20,7 +20,7 @@ export default function Hero() {
       className="relative min-h-screen pt-24 md:pt-28 pb-10 overflow-hidden bg-[#FAF9F5] text-ink flex flex-col justify-between"
       aria-label="Hero section"
     >
-      {/* Background Decorative Blur Gradients */}
+      {/* Ambient Blur Glow Gradients */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
@@ -46,18 +46,18 @@ export default function Hero() {
           />
         </div>
 
-        {/* MAIN FULL-STAGE LAYOUT GRID */}
+        {/* MAIN LAYOUT GRID: LEFT TEXT (Cols 5) & RIGHT STAGE (Cols 7) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-1 my-4 md:my-0">
           
-          {/* LEFT CONTENT COLUMN (Cols 4) */}
+          {/* LEFT CONTENT COLUMN (Cols 5 — Shifted slightly left) */}
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-4 flex flex-col gap-6 z-20"
+            className="lg:col-span-5 flex flex-col gap-6 z-20 lg:-ml-2"
           >
             <div className="space-y-3">
-              <h2 className="font-heading font-extrabold text-2xl md:text-3xl lg:text-[38px] text-ink leading-tight">
+              <h2 className="font-heading font-extrabold text-2xl md:text-3xl lg:text-[40px] text-ink leading-tight">
                 Dari Kampung Dolly,<br />
                 <span className="text-navy">untuk Cerita Baru.</span>
               </h2>
@@ -88,14 +88,10 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Bottom Left Card Overlay (Mural Photo + 2K+ Avatars Badge) */}
+            {/* Bottom Left Overlay Card (Avatars & Community Badge) */}
             <div className="mt-2 p-3 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-lg flex items-center gap-4 max-w-sm">
-              <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-gray-200">
-                <img
-                  src="/sura-baya.png"
-                  alt="Kampung Dolly Mural"
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-gray-200 bg-gray-100 flex items-center justify-center font-heading font-extrabold text-indigo">
+                2K+
               </div>
               <div>
                 <div className="flex -space-x-2 overflow-hidden mb-1">
@@ -109,33 +105,35 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* GIANT CENTER STAGE: BOLD T-SHIRT SHOWCASE (Cols 5) */}
-          <div className="lg:col-span-5 relative flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] my-2 lg:my-0">
+          {/* RIGHT SIDE SHOWCASE (Cols 7 — T-Shirt + Surabaya & Kota Lama Backgrounds on Right) */}
+          <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end min-h-[400px] md:min-h-[500px] my-2 lg:my-0">
             
-            {/* Background Landmark Image (Kota Lama / Surabaya) */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-52 md:w-72 h-72 md:h-96 rounded-3xl overflow-hidden opacity-30 grayscale hover:grayscale-0 transition-all duration-500 z-0 pointer-events-none">
-              <img src="/kotalama.png" alt="Landmark Kota Lama" className="w-full h-full object-cover" />
-            </div>
+            {/* BACKGROUND IMAGE 1: Kota Lama Monument Card (Right Background) */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="absolute right-0 top-2 w-48 md:w-64 h-64 md:h-88 rounded-3xl overflow-hidden shadow-xl border-2 border-white opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500 z-0 pointer-events-none rotate-3"
+            >
+              <img src="/kotalama.png" alt="Kota Lama Surabaya" className="w-full h-full object-cover" />
+            </motion.div>
+
+            {/* BACKGROUND IMAGE 2: Surabaya Mural Art Card (Right Background Left Layer) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="absolute left-10 md:left-24 bottom-4 w-44 md:w-60 h-56 md:h-80 rounded-3xl overflow-hidden shadow-lg border-2 border-white opacity-35 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500 z-0 pointer-events-none -rotate-6"
+            >
+              <img src="/sura-baya.png" alt="Surabaya Mural Art" className="w-full h-full object-cover" />
+            </motion.div>
 
             {/* Glowing 3D Liquid Orbit Rings */}
             <div className="absolute w-80 h-80 md:w-[460px] md:h-[460px] rounded-full border-4 border-lime/50 animate-pulse pointer-events-none z-0 shadow-[0_0_60px_rgba(212,248,54,0.4)]" />
             <div className="absolute w-96 h-96 md:w-[500px] md:h-[500px] rounded-full border border-gray-300/50 pointer-events-none z-0" />
 
-            {/* Mascot Sura & Baya Peeking Behind Shirt */}
-            <motion.img
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: [0, -12, 0], opacity: 1 }}
-              transition={{
-                y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
-                opacity: { duration: 0.6 }
-              }}
-              src="/mascot.png"
-              alt="Maskot Dollyverse"
-              className="absolute right-2 md:-right-8 top-2 w-32 md:w-52 h-auto z-10 drop-shadow-2xl pointer-events-none"
-            />
-
-            {/* GIANT T-SHIRT MOCKUP (mockup-2.png) */}
-            <div className="relative z-20 w-full flex items-center justify-center">
+            {/* GIANT T-SHIRT MOCKUP (mockup-2.png) Positioned Right */}
+            <div className="relative z-20 flex items-center justify-center lg:pr-6">
               <motion.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -145,7 +143,7 @@ export default function Hero() {
                 <img
                   src="/mockup-2.png"
                   alt="Custom T-Shirt KUB Dollyverse"
-                  className="w-80 sm:w-[420px] md:w-[520px] lg:w-[600px] h-auto object-contain drop-shadow-[0_30px_45px_rgba(0,0,0,0.22)] transition-transform duration-300 group-hover:scale-105"
+                  className="w-80 sm:w-[440px] md:w-[540px] lg:w-[620px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
                 />
               </motion.div>
             </div>
@@ -153,40 +151,12 @@ export default function Hero() {
             {/* Bottom Right Floating Action Orb "Lihat Prosesnya?" */}
             <Link
               to="/layanan"
-              className="absolute -bottom-4 right-0 lg:-right-12 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
+              className="absolute -bottom-4 right-0 lg:-right-4 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
             >
               <span className="text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
               <span>Lihat Prosesnya?</span>
             </Link>
           </div>
-
-          {/* RIGHT VERTICAL CATEGORY INDEX MENU (Cols 3) */}
-          <motion.div
-            initial={{ opacity: 0, x: 35 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="lg:col-span-3 hidden lg:flex flex-col justify-center items-end gap-6 z-20 pl-4 border-l border-gray-200/60"
-          >
-            <div className="w-full space-y-4">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest text-right mb-2">
-                Kategori Utama
-              </p>
-              {categories.map((cat) => (
-                <Link
-                  key={cat.id}
-                  to={cat.link}
-                  className="group flex items-center justify-end gap-3 text-right text-gray-600 hover:text-ink transition-colors py-1"
-                >
-                  <span className="font-heading font-bold text-sm md:text-base group-hover:translate-x-[-4px] transition-transform">
-                    {cat.title}
-                  </span>
-                  <span className="font-mono text-xs text-gray-400 group-hover:text-lime font-bold">
-                    /{cat.id}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
 
         </div>
       </div>
