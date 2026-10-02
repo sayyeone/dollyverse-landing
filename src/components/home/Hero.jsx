@@ -39,15 +39,15 @@ export default function Hero() {
           />
         </div>
 
-        {/* MAIN LAYOUT GRID: LEFT TEXT (FAR LEFT, SMALLER) & RIGHT T-SHIRT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center flex-1 my-4 md:my-0">
+        {/* MAIN LAYOUT GRID: LEFT TEXT (SHIFTED FAR LEFT) & RIGHT-TOP T-SHIRT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start flex-1 my-2 md:my-0">
           
-          {/* LEFT CONTENT COLUMN (Cols 4 — Shifted far left, smaller text) */}
+          {/* LEFT CONTENT COLUMN (Shifted further left) */}
           <motion.div
-            initial={{ opacity: 0, x: -35 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-4 flex flex-col gap-5 z-20 lg:-ml-4"
+            className="lg:col-span-5 flex flex-col gap-5 z-20 lg:-ml-12 pt-2 md:pt-6"
           >
             <div className="space-y-2.5">
               <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-ink leading-tight">
@@ -98,25 +98,25 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE T-SHIRT SHOWCASE (Cols 8 — Clean T-Shirt on Far Right) */}
-          <div className="lg:col-span-8 relative flex items-center justify-center lg:justify-end min-h-[400px] md:min-h-[480px] my-2 lg:my-0 lg:pr-4">
+          {/* RIGHT SIDE SHOWCASE (T-Shirt Shifted to Right-Top) */}
+          <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-start min-h-[380px] md:min-h-[460px] my-2 lg:my-0 lg:-mt-24 z-20">
             
             {/* Glowing 3D Liquid Orbit Rings */}
-            <div className="absolute w-80 h-80 md:w-[480px] md:h-[480px] rounded-full border-4 border-lime/50 animate-pulse pointer-events-none z-0 shadow-[0_0_60px_rgba(212,248,54,0.4)]" />
-            <div className="absolute w-96 h-96 md:w-[520px] md:h-[520px] rounded-full border border-gray-300/50 pointer-events-none z-0" />
+            <div className="absolute right-4 md:right-8 top-0 w-80 h-80 md:w-[460px] md:h-[460px] rounded-full border-4 border-lime/50 animate-pulse pointer-events-none z-0 shadow-[0_0_60px_rgba(212,248,54,0.4)]" />
+            <div className="absolute right-0 md:right-4 top-0 w-96 h-96 md:w-[500px] md:h-[500px] rounded-full border border-gray-300/50 pointer-events-none z-0" />
 
-            {/* GIANT T-SHIRT MOCKUP (mockup-2.png) Positioned Right */}
-            <div className="relative z-20 flex items-center justify-center">
+            {/* GIANT T-SHIRT MOCKUP (Shifted to Right Top) */}
+            <div className="relative z-20 flex items-center justify-end">
               <motion.div
-                initial={{ opacity: 0, scale: 0.85 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: -20, scale: 0.85 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.6 }}
                 className="relative group"
               >
                 <img
                   src="/mockup-2.png"
                   alt="Custom T-Shirt KUB Dollyverse"
-                  className="w-80 sm:w-[460px] md:w-[560px] lg:w-[640px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
+                  className="w-76 sm:w-[420px] md:w-[520px] lg:w-[600px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
                 />
               </motion.div>
             </div>
@@ -124,7 +124,7 @@ export default function Hero() {
             {/* Bottom Right Floating Action Orb "Lihat Prosesnya?" */}
             <Link
               to="/layanan"
-              className="absolute -bottom-4 right-0 lg:right-2 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
+              className="absolute -bottom-6 right-0 lg:right-4 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
             >
               <span className="text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
               <span>Lihat Prosesnya?</span>
