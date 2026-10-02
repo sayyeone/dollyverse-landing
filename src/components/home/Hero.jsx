@@ -19,13 +19,13 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-between">
         
-        {/* HUGE BACKGROUND DISPLAY TYPOGRAPHY: KUB DOLLYVERSE. */}
-        <div className="relative w-full text-center lg:text-left select-none pointer-events-none pt-2 md:pt-4">
+        {/* GIANT DISPLAY TYPOGRAPHY: KUB DOLLYVERSE. (SHIFTED FAR LEFT) */}
+        <div className="relative w-full text-left select-none pointer-events-none pt-2 md:pt-4 -ml-2 lg:-ml-12">
           <motion.h1
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-display font-black text-ink tracking-tighter text-[11.5vw] lg:text-[10vw] leading-[0.82] uppercase"
+            className="font-display font-black text-ink tracking-tighter text-[11.5vw] lg:text-[10vw] leading-[0.82] uppercase text-left"
           >
             KUB DOLLYVERSE<span className="text-lime">.</span>
           </motion.h1>
@@ -35,7 +35,7 @@ export default function Hero() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="origin-left mt-2 lg:ml-20 w-44 md:w-80 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
+            className="origin-left mt-2 ml-1 lg:ml-4 w-44 md:w-80 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
           />
         </div>
 
