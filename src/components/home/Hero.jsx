@@ -10,44 +10,45 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-24 md:pt-28 pb-10 overflow-hidden bg-[#FAF9F5] text-ink flex flex-col justify-between"
+      className="relative min-h-screen pt-24 md:pt-28 pb-10 overflow-hidden bg-[#FAF9F5] text-ink flex flex-col justify-center"
       aria-label="Hero section"
     >
       {/* Ambient Blur Glow Gradients */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-between">
+      {/* ABSOLUTE BACKGROUND LAYER: GIANT "KUB DOLLYVERSE." TYPOGRAPHY (Rotated -2deg, No flow displacement) */}
+      <div className="absolute top-20 md:top-24 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
+        <motion.h1
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="font-display font-black text-ink tracking-tighter text-[11.5vw] lg:text-[10vw] leading-[0.82] uppercase text-left"
+        >
+          KUB DOLLYVERSE<span className="text-lime">.</span>
+        </motion.h1>
+
+        {/* Underline swoosh stroke */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="origin-left mt-2 ml-1 lg:ml-4 w-44 md:w-80 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
+        />
+      </div>
+
+      {/* MAIN CONTENT COMPOSITION (Overlapping the lower background typography) */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-center pt-28 md:pt-36">
         
-        {/* GIANT DISPLAY TYPOGRAPHY: KUB DOLLYVERSE. (SHIFTED FAR LEFT) */}
-        <div className="relative w-full text-left select-none pointer-events-none pt-2 md:pt-4 -ml-2 lg:-ml-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-display font-black text-ink tracking-tighter text-[11.5vw] lg:text-[10vw] leading-[0.82] uppercase text-left"
-          >
-            KUB DOLLYVERSE<span className="text-lime">.</span>
-          </motion.h1>
-
-          {/* Underline swoosh stroke */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="origin-left mt-2 ml-1 lg:ml-4 w-44 md:w-80 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
-          />
-        </div>
-
-        {/* MAIN LAYOUT GRID: LEFT TEXT (SHIFTED FAR LEFT) & RIGHT-TOP T-SHIRT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start flex-1 my-2 md:my-0">
+        {/* MAIN LAYOUT GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-1 my-2 md:my-0">
           
-          {/* LEFT CONTENT COLUMN (Shifted further left) */}
+          {/* LEFT CONTENT COLUMN */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-5 z-20 lg:-ml-12 pt-2 md:pt-6"
+            className="lg:col-span-5 flex flex-col gap-5 z-20"
           >
             <div className="space-y-2.5">
               <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-ink leading-tight">
@@ -98,14 +99,10 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE SHOWCASE (T-Shirt Shifted to Right-Top) */}
-          <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-start min-h-[380px] md:min-h-[460px] my-2 lg:my-0 lg:-mt-24 z-20">
+          {/* RIGHT SIDE T-SHIRT SHOWCASE (Overlapping the lower background typography, Orbit CSS rings removed) */}
+          <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-center min-h-[380px] md:min-h-[460px] my-2 lg:my-0 z-20">
             
-            {/* Glowing 3D Liquid Orbit Rings */}
-            <div className="absolute right-4 md:right-8 top-0 w-80 h-80 md:w-[460px] md:h-[460px] rounded-full border-4 border-lime/50 animate-pulse pointer-events-none z-0 shadow-[0_0_60px_rgba(212,248,54,0.4)]" />
-            <div className="absolute right-0 md:right-4 top-0 w-96 h-96 md:w-[500px] md:h-[500px] rounded-full border border-gray-300/50 pointer-events-none z-0" />
-
-            {/* GIANT T-SHIRT MOCKUP (Shifted to Right Top) */}
+            {/* T-SHIRT MOCKUP (Contains native orbital elements in asset) */}
             <div className="relative z-20 flex items-center justify-end">
               <motion.div
                 initial={{ opacity: 0, y: -20, scale: 0.85 }}
@@ -116,7 +113,7 @@ export default function Hero() {
                 <img
                   src="/mockup-2.png"
                   alt="Custom T-Shirt KUB Dollyverse"
-                  className="w-76 sm:w-[420px] md:w-[520px] lg:w-[600px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
+                  className="w-76 sm:w-[440px] md:w-[540px] lg:w-[620px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
                 />
               </motion.div>
             </div>
