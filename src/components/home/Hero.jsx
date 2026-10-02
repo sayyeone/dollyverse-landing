@@ -17,8 +17,8 @@ export default function Hero() {
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
-      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES */}
-      <div className="absolute top-28 md:top-32 lg:top-36 left-8 md:left-16 lg:left-24 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
+      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES (Positioned LEFT) */}
+      <div className="absolute top-24 md:top-28 lg:top-32 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-5 z-20 lg:-ml-20"
+            className="lg:col-span-5 flex flex-col gap-5 z-20"
           >
             <div className="space-y-2.5">
               <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[36px] text-ink leading-tight">
@@ -87,7 +87,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE T-SHIRT SHOWCASE */}
+          {/* RIGHT SIDE T-SHIRT SHOWCASE (Stays on the right) */}
           <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-center min-h-[380px] md:min-h-[460px] my-2 lg:my-0 z-20">
             
             {/* T-SHIRT MOCKUP */}
