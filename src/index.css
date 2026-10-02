@@ -2,14 +2,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* ─── Color tokens ─── */
+  /* ─── Brand Color tokens ─── */
   --color-ink: #121316;
   --color-navy: #2F3552;
   --color-indigo: #4A3C9E;
   --color-violet: #8E7CF0;
   --color-lilac: #EDE9FE;
   --color-gold: #E0A92E;
-  --color-lime: #D4F836;
   --color-cream: #F6E7C1;
   --color-paper: #FFFFFF;
 

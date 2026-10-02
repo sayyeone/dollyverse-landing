@@ -23,7 +23,6 @@ export default function Navbar() {
   useEffect(() => setMenuOpen(false), [location.pathname])
 
   const solid = scrollY > 40
-  const isHome = location.pathname === '/'
 
   return (
     <>
@@ -60,7 +59,7 @@ export default function Navbar() {
                     className={({ isActive }) =>
                       `px-4 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 block ${
                         isActive
-                          ? 'bg-lime text-ink font-bold shadow-xs'
+                          ? 'bg-gold text-ink font-bold shadow-xs'
                           : 'text-gray-700 hover:text-ink hover:bg-gray-100/70'
                       }`
                     }
@@ -87,13 +86,13 @@ export default function Navbar() {
               aria-label="Keranjang belanja"
             >
               <ShoppingBag size={20} />
-              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-lime border border-white" />
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-gold border border-white" />
             </button>
             <a
               href="https://wa.me/6281234567890?text=Halo+Dollyverse%2C+saya+ingin+pesan+custom."
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 bg-ink hover:bg-navy text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+              className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-indigo to-violet text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
               <span>Pesan Custom</span>
               <ArrowRight size={16} />

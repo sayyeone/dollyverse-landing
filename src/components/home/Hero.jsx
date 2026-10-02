@@ -1,7 +1,7 @@
 // src/components/home/Hero.jsx
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Play, CheckCircle2, Sparkles, X, ChevronRight } from 'lucide-react'
+import { ArrowRight, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const heroProducts = [
@@ -48,8 +48,8 @@ export default function Hero() {
       aria-label="Hero section"
     >
       {/* Background Decorative Blur Gradients */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-gradient-to-b from-lime/20 via-violet/10 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-gradient-to-b from-gold/20 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-indigo/10 blur-3xl pointer-events-none z-0 rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-center">
         {/* HUGE BACKGROUND TYPOGRAPHY: KUB DOLLYVERSE. */}
@@ -60,7 +60,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="font-heading font-black text-ink tracking-tighter text-[12vw] lg:text-[10.5vw] leading-[0.85] uppercase"
           >
-            KUB DOLLYVERSE<span className="text-lime">.</span>
+            KUB DOLLYVERSE<span className="text-gold">.</span>
           </motion.h1>
 
           {/* Underline swoosh stroke */}
@@ -68,7 +68,7 @@ export default function Hero() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="origin-left mt-1 lg:ml-20 w-48 md:w-80 h-3 md:h-4 bg-lime rounded-full shadow-sm"
+            className="origin-left mt-1 lg:ml-20 w-48 md:w-80 h-3 md:h-4 bg-gold rounded-full shadow-sm"
           />
         </div>
 
@@ -96,7 +96,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 to="/produk"
-                className="inline-flex items-center gap-2 bg-lime hover:bg-[#c4f322] text-ink font-heading font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo via-violet to-indigo text-white font-heading font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <span>Lihat Produk</span>
                 <ArrowRight size={18} />
@@ -114,7 +114,7 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Bottom Left Card Overlay (Street Art Mural Photo + Avatars Badge) */}
+            {/* Bottom Left Card Overlay */}
             <div className="mt-4 p-3 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-lg flex items-center gap-4 max-w-sm">
               <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-gray-200">
                 <img
@@ -143,8 +143,8 @@ export default function Hero() {
               <img src="/kotalama.png" alt="Landmark Kota Lama" className="w-full h-full object-cover" />
             </div>
 
-            {/* Glowing Liquid Orbit Ring Effect */}
-            <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-lime/40 animate-pulse pointer-events-none z-0 shadow-[0_0_50px_rgba(212,248,54,0.3)]" />
+            {/* Glowing Orbit Ring Effect */}
+            <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-gold/40 animate-pulse pointer-events-none z-0 shadow-[0_0_50px_rgba(224,169,46,0.35)]" />
             <div className="absolute w-80 h-80 md:w-[420px] md:h-[420px] rounded-full border border-gray-300/40 pointer-events-none z-0" />
 
             {/* Mascot Floating Right Behind Shirt */}
@@ -179,14 +179,14 @@ export default function Hero() {
                   
                   {/* Floating badge label on shirt */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-ink/90 text-white backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold shadow-xl border border-white/20 whitespace-nowrap flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-lime animate-ping" />
+                    <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
                     <span>{activeProduct.name}</span>
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Product Switcher Thumbnails (Uses ALL 3 IMAGES: mockup-2, sura-baya, kotalama) */}
+            {/* Product Switcher Thumbnails */}
             <div className="relative z-30 flex items-center justify-center gap-3 mt-6 bg-white/80 backdrop-blur-md p-2 rounded-full border border-gray-200 shadow-md">
               {heroProducts.map((prod, index) => (
                 <button
@@ -207,10 +207,10 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Bottom Right Floating Lime Action Orb "Lihat Prosesnya?" */}
+            {/* Bottom Right Floating Action Orb "Lihat Prosesnya?" */}
             <Link
               to="/layanan"
-              className="absolute -bottom-6 right-2 lg:-right-10 z-30 w-24 h-24 md:w-28 md:h-28 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
+              className="absolute -bottom-6 right-2 lg:-right-10 z-30 w-24 h-24 md:w-28 md:h-28 rounded-full bg-gold text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
             >
               <span className="text-base md:text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
               <span>Lihat Prosesnya?</span>
@@ -237,7 +237,7 @@ export default function Hero() {
                   <span className="font-heading font-bold text-sm md:text-base group-hover:translate-x-[-4px] transition-transform">
                     {cat.title}
                   </span>
-                  <span className="font-mono text-xs text-gray-400 group-hover:text-lime font-bold">
+                  <span className="font-mono text-xs text-gray-400 group-hover:text-gold font-bold">
                     /{cat.id}
                   </span>
                 </Link>
@@ -273,7 +273,7 @@ export default function Hero() {
                 <X size={20} />
               </button>
               <h3 className="font-heading font-bold text-xl text-white mb-4 flex items-center gap-2">
-                <Sparkles className="text-lime" size={20} />
+                <Sparkles className="text-gold" size={20} />
                 Profil KUB Dollyverse Surabaya
               </h3>
               <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-white/10">
