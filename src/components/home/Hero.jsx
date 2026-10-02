@@ -4,13 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-const categories = [
-  { id: '01', title: 'Custom T-Shirt', link: '/produk?cat=kaos' },
-  { id: '02', title: 'Merchandise', link: '/produk?cat=merch' },
-  { id: '03', title: 'Pelatihan Kreatif', link: '/layanan#pelatihan' },
-  { id: '04', title: 'Komunitas', link: '/tentang' },
-]
-
 export default function Hero() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
 
@@ -32,7 +25,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-display font-black text-ink tracking-tighter text-[11.5vw] lg:text-[10.5vw] leading-[0.82] uppercase"
+            className="font-display font-black text-ink tracking-tighter text-[11.5vw] lg:text-[10vw] leading-[0.82] uppercase"
           >
             KUB DOLLYVERSE<span className="text-lime">.</span>
           </motion.h1>
@@ -42,98 +35,78 @@ export default function Hero() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="origin-left mt-2 lg:ml-20 w-48 md:w-88 h-3.5 md:h-4 bg-lime rounded-full shadow-sm"
+            className="origin-left mt-2 lg:ml-20 w-44 md:w-80 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
           />
         </div>
 
-        {/* MAIN LAYOUT GRID: LEFT TEXT (Cols 5) & RIGHT STAGE (Cols 7) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-1 my-4 md:my-0">
+        {/* MAIN LAYOUT GRID: LEFT TEXT (FAR LEFT, SMALLER) & RIGHT T-SHIRT */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center flex-1 my-4 md:my-0">
           
-          {/* LEFT CONTENT COLUMN (Cols 5 — Shifted slightly left) */}
+          {/* LEFT CONTENT COLUMN (Cols 4 — Shifted far left, smaller text) */}
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-6 z-20 lg:-ml-2"
+            className="lg:col-span-4 flex flex-col gap-5 z-20 lg:-ml-4"
           >
-            <div className="space-y-3">
-              <h2 className="font-heading font-extrabold text-2xl md:text-3xl lg:text-[40px] text-ink leading-tight">
+            <div className="space-y-2.5">
+              <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-ink leading-tight">
                 Dari Kampung Dolly,<br />
                 <span className="text-navy">untuk Cerita Baru.</span>
               </h2>
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed max-w-xs md:max-w-sm">
                 Custom t-shirt, merchandise, dan pelatihan kreatif untuk mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-1">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
                 to="/produk"
-                className="inline-flex items-center gap-2 bg-lime hover:bg-[#c5f028] text-ink font-heading font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-lime hover:bg-[#c5f028] text-ink font-heading font-extrabold text-xs md:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <span>Lihat Produk</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </Link>
 
               <button
                 type="button"
                 onClick={() => setIsVideoOpen(true)}
-                className="inline-flex items-center gap-3 group text-ink hover:text-indigo font-bold text-sm md:text-base py-2 px-3 rounded-full transition-all"
+                className="inline-flex items-center gap-2.5 group text-ink hover:text-indigo font-bold text-xs md:text-sm py-2 px-2.5 rounded-full transition-all"
               >
-                <div className="w-11 h-11 rounded-full border-2 border-ink flex items-center justify-center bg-white/70 group-hover:bg-ink group-hover:text-white transition-all shadow-sm">
-                  <Play size={16} className="ml-0.5 fill-current" />
+                <div className="w-10 h-10 rounded-full border-2 border-ink flex items-center justify-center bg-white/70 group-hover:bg-ink group-hover:text-white transition-all shadow-xs">
+                  <Play size={14} className="ml-0.5 fill-current" />
                 </div>
                 <span>Video Profil</span>
               </button>
             </div>
 
-            {/* Bottom Left Overlay Card (Avatars & Community Badge) */}
-            <div className="mt-2 p-3 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-lg flex items-center gap-4 max-w-sm">
-              <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-gray-200 bg-gray-100 flex items-center justify-center font-heading font-extrabold text-indigo">
+            {/* Bottom Left Community Badge Overlay */}
+            <div className="mt-1 p-2.5 bg-white/90 backdrop-blur-md rounded-xl border border-gray-200/80 shadow-md flex items-center gap-3 max-w-xs">
+              <div className="w-11 h-11 rounded-lg border border-gray-200 bg-gray-100 flex items-center justify-center font-heading font-extrabold text-indigo text-xs shrink-0">
                 2K+
               </div>
               <div>
-                <div className="flex -space-x-2 overflow-hidden mb-1">
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
+                <div className="flex -space-x-1.5 overflow-hidden mb-0.5">
+                  <img className="inline-block h-5 w-5 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
+                  <img className="inline-block h-5 w-5 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
+                  <img className="inline-block h-5 w-5 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
                 </div>
-                <p className="font-heading font-bold text-xs text-ink">2K+ Pelanggan</p>
-                <p className="text-[11px] text-gray-500">& anggota komunitas</p>
+                <p className="font-heading font-bold text-[11px] text-ink">2K+ Pelanggan</p>
+                <p className="text-[10px] text-gray-500">& anggota komunitas</p>
               </div>
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE SHOWCASE (Cols 7 — T-Shirt + Surabaya & Kota Lama Backgrounds on Right) */}
-          <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end min-h-[400px] md:min-h-[500px] my-2 lg:my-0">
+          {/* RIGHT SIDE T-SHIRT SHOWCASE (Cols 8 — Clean T-Shirt on Far Right) */}
+          <div className="lg:col-span-8 relative flex items-center justify-center lg:justify-end min-h-[400px] md:min-h-[480px] my-2 lg:my-0 lg:pr-4">
             
-            {/* BACKGROUND IMAGE 1: Kota Lama Monument Card (Right Background) */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="absolute right-0 top-2 w-48 md:w-64 h-64 md:h-88 rounded-3xl overflow-hidden shadow-xl border-2 border-white opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500 z-0 pointer-events-none rotate-3"
-            >
-              <img src="/kotalama.png" alt="Kota Lama Surabaya" className="w-full h-full object-cover" />
-            </motion.div>
-
-            {/* BACKGROUND IMAGE 2: Surabaya Mural Art Card (Right Background Left Layer) */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute left-10 md:left-24 bottom-4 w-44 md:w-60 h-56 md:h-80 rounded-3xl overflow-hidden shadow-lg border-2 border-white opacity-35 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500 z-0 pointer-events-none -rotate-6"
-            >
-              <img src="/sura-baya.png" alt="Surabaya Mural Art" className="w-full h-full object-cover" />
-            </motion.div>
-
             {/* Glowing 3D Liquid Orbit Rings */}
-            <div className="absolute w-80 h-80 md:w-[460px] md:h-[460px] rounded-full border-4 border-lime/50 animate-pulse pointer-events-none z-0 shadow-[0_0_60px_rgba(212,248,54,0.4)]" />
-            <div className="absolute w-96 h-96 md:w-[500px] md:h-[500px] rounded-full border border-gray-300/50 pointer-events-none z-0" />
+            <div className="absolute w-80 h-80 md:w-[480px] md:h-[480px] rounded-full border-4 border-lime/50 animate-pulse pointer-events-none z-0 shadow-[0_0_60px_rgba(212,248,54,0.4)]" />
+            <div className="absolute w-96 h-96 md:w-[520px] md:h-[520px] rounded-full border border-gray-300/50 pointer-events-none z-0" />
 
             {/* GIANT T-SHIRT MOCKUP (mockup-2.png) Positioned Right */}
-            <div className="relative z-20 flex items-center justify-center lg:pr-6">
+            <div className="relative z-20 flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -143,7 +116,7 @@ export default function Hero() {
                 <img
                   src="/mockup-2.png"
                   alt="Custom T-Shirt KUB Dollyverse"
-                  className="w-80 sm:w-[440px] md:w-[540px] lg:w-[620px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
+                  className="w-80 sm:w-[460px] md:w-[560px] lg:w-[640px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
                 />
               </motion.div>
             </div>
@@ -151,7 +124,7 @@ export default function Hero() {
             {/* Bottom Right Floating Action Orb "Lihat Prosesnya?" */}
             <Link
               to="/layanan"
-              className="absolute -bottom-4 right-0 lg:-right-4 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
+              className="absolute -bottom-4 right-0 lg:right-2 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
             >
               <span className="text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
               <span>Lihat Prosesnya?</span>
