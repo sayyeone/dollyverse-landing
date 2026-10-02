@@ -17,8 +17,8 @@ export default function Hero() {
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
-      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES (Positioned LEFT) */}
-      <div className="absolute top-24 md:top-28 lg:top-32 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
+      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES */}
+      <div className="absolute top-28 md:top-32 lg:top-36 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,42 +52,42 @@ export default function Hero() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-5 z-20"
+            className="lg:col-span-5 flex flex-col gap-7 z-20 lg:-ml-32 xl:-ml-56 2xl:-ml-64 lg:pt-16"
           >
-            <div className="space-y-2.5">
-              <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[36px] text-ink leading-tight">
+            <div className="space-y-4">
+              <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] text-ink leading-[1.05]">
                 Dari Kampung Dolly,<br />
                 <span className="text-navy">untuk Cerita Baru.</span>
               </h2>
-              <p className="text-gray-600 text-xs md:text-sm leading-relaxed max-w-xs md:max-w-sm">
+              <p className="text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed max-w-sm md:max-w-md lg:max-w-lg">
                 Custom t-shirt, merchandise, dan pelatihan kreatif untuk mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 to="/produk"
-                className="inline-flex items-center gap-2 bg-lime hover:bg-[#c5f028] text-ink font-heading font-extrabold text-xs md:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-3 bg-lime hover:bg-[#c5f028] text-ink font-heading font-extrabold text-sm md:text-base lg:text-lg px-8 py-4 lg:px-10 lg:py-5 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <span>Lihat Produk</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={20} />
               </Link>
 
               <button
                 type="button"
                 onClick={() => setIsVideoOpen(true)}
-                className="inline-flex items-center gap-2.5 group text-ink hover:text-indigo font-bold text-xs md:text-sm py-2 px-2.5 rounded-full transition-all"
+                className="inline-flex items-center gap-3 group text-ink hover:text-indigo font-bold text-sm md:text-base lg:text-lg py-2 px-3 rounded-full transition-all"
               >
-                <div className="w-10 h-10 rounded-full border-2 border-ink flex items-center justify-center bg-white/70 group-hover:bg-ink group-hover:text-white transition-all shadow-xs">
-                  <Play size={14} className="ml-0.5 fill-current" />
+                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full border-2 border-ink flex items-center justify-center bg-white/70 group-hover:bg-ink group-hover:text-white transition-all shadow-xs">
+                  <Play size={20} className="ml-0.5 fill-current" />
                 </div>
                 <span>Video Profil</span>
               </button>
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE T-SHIRT SHOWCASE (Stays on the right) */}
+          {/* RIGHT SIDE T-SHIRT SHOWCASE */}
           <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-center min-h-[380px] md:min-h-[460px] my-2 lg:my-0 z-20">
             
             {/* T-SHIRT MOCKUP */}
