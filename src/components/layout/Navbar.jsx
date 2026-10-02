@@ -1,15 +1,16 @@
 // src/components/layout/Navbar.jsx
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Search, ShoppingBag, ArrowRight, ThumbsUp } from 'lucide-react'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 import MobileMenu from './MobileMenu'
 
 const navLinks = [
   { to: '/', label: 'Beranda' },
-  { to: '/tentang', label: 'Tentang' },
   { to: '/produk', label: 'Produk' },
-  { to: '/layanan', label: 'Layanan' },
+  { to: '/layanan', label: 'Custom' },
+  { to: '/layanan#pelatihan', label: 'Pelatihan' },
+  { to: '/tentang', label: 'Tentang Kami' },
   { to: '/kontak', label: 'Kontak' },
 ]
 
@@ -28,61 +29,81 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          solid || !isHome
-            ? 'bg-navy/95 backdrop-blur-md shadow-lg shadow-black/20'
-            : 'bg-transparent'
+          solid
+            ? 'bg-white/90 backdrop-blur-md shadow-md py-3'
+            : 'bg-transparent py-4 md:py-6'
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
+        <nav className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet rounded-lg"
-            aria-label="Dollyverse — ke halaman beranda"
+            className="flex items-center gap-1.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo rounded-lg"
+            aria-label="KUB Dollyverse — Ke Beranda"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo to-violet flex items-center justify-center shadow-md">
-              <span className="text-white font-heading font-extrabold text-base leading-none">D</span>
-            </div>
-            <span className="font-heading font-extrabold text-white text-xl tracking-tight">
-              Dollyverse
+            <span className="font-heading font-black text-ink text-xl md:text-2xl tracking-tighter uppercase">
+              KUB <span className="text-ink">DOLLYVERSE</span>
             </span>
+            <div className="w-6 h-6 rounded-full bg-gold flex items-center justify-center text-ink shadow-sm group-hover:scale-110 transition-transform">
+              <ThumbsUp size={13} className="fill-ink" />
+            </div>
           </Link>
 
-          {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-1">
-            {navLinks.map(({ to, label }) => (
-              <li key={to}>
-                <NavLink
-                  to={to}
-                  end={to === '/'}
-                  className={({ isActive }) =>
-                    `relative px-4 py-2 text-sm font-semibold rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet ${
-                      isActive
-                        ? 'text-violet after:absolute after:bottom-0 after:left-4 after:right-4 after:h-0.5 after:bg-violet after:rounded-full'
-                        : 'text-white/80 hover:text-white hover:bg-white/10'
-                    }`
-                  }
-                >
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop Capsule Nav */}
+          <div className="hidden lg:flex items-center bg-white/80 backdrop-blur-md border border-gray-200/80 rounded-full px-2 py-1.5 shadow-sm">
+            <ul className="flex items-center gap-1">
+              {navLinks.map(({ to, label }) => (
+                <li key={to}>
+                  <NavLink
+                    to={to}
+                    end={to === '/'}
+                    className={({ isActive }) =>
+                      `px-4 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 block ${
+                        isActive
+                          ? 'bg-lime text-ink font-bold shadow-xs'
+                          : 'text-gray-700 hover:text-ink hover:bg-gray-100/70'
+                      }`
+                    }
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* CTA + Hamburger */}
+          {/* Right Icons & CTA */}
           <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="p-2 rounded-full text-ink hover:bg-gray-100 transition-colors"
+              aria-label="Cari produk"
+            >
+              <Search size={20} />
+            </button>
+            <button
+              type="button"
+              className="relative p-2 rounded-full text-ink hover:bg-gray-100 transition-colors"
+              aria-label="Keranjang belanja"
+            >
+              <ShoppingBag size={20} />
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-lime border border-white" />
+            </button>
             <a
-              href="https://wa.me/6281234567890?text=Halo+Dollyverse%2C+saya+ingin+bertanya."
+              href="https://wa.me/6281234567890?text=Halo+Dollyverse%2C+saya+ingin+pesan+custom."
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-indigo to-violet text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+              className="hidden sm:inline-flex items-center gap-2 bg-ink hover:bg-navy text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
             >
-              Pesan via WhatsApp
+              <span>Pesan Custom</span>
+              <ArrowRight size={16} />
             </a>
+
+            {/* Mobile Hamburger */}
             <button
               id="nav-menu-toggle"
               type="button"
-              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet"
+              className="lg:hidden p-2 rounded-full text-ink hover:bg-gray-100 transition-colors"
               aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
