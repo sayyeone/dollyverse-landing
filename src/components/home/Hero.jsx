@@ -1,241 +1,104 @@
 // src/components/home/Hero.jsx
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Play, Sparkles, X, MapPin } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowRight, MessageCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
-
-const categories = [
-  { id: '01', title: 'Custom T-Shirt', link: '/produk?cat=kaos' },
-  { id: '02', title: 'Merchandise', link: '/produk?cat=merch' },
-  { id: '03', title: 'Pelatihan Kreatif', link: '/layanan#pelatihan' },
-  { id: '04', title: 'Komunitas', link: '/tentang' },
-]
+import { buildWaUrl } from '../../data/contact'
 
 export default function Hero() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
-
   return (
     <section
       id="hero"
-      className="relative min-h-[88vh] pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden bg-[#FAF9F5] text-ink flex flex-col justify-between"
+      className="relative min-h-[85vh] pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#FAF9F5] flex flex-col justify-center"
       aria-label="Hero section"
     >
-      {/* Ambient Glow Gradients */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[70vw] h-[400px] bg-gradient-to-b from-gold/15 via-violet/10 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
-      <div className="absolute top-1/3 right-10 w-80 h-80 bg-indigo/10 blur-3xl pointer-events-none z-0 rounded-full" />
+      {/* Soft Ambient Background Glow (60/30/10 Rule: subtle 10% gold glow) */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none z-0" />
+      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-indigo/5 rounded-full blur-3xl pointer-events-none z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-center">
-        
-        {/* TOP TYPOGRAPHY: KUB DOLLYVERSE. */}
-        <div className="relative w-full text-center lg:text-left select-none mb-6 md:mb-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="font-heading font-black text-ink tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase"
-          >
-            KUB DOLLYVERSE<span className="text-gold">.</span>
-          </motion.h1>
-
-          {/* Underline swoosh stroke */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="origin-left mt-2 lg:ml-1 w-32 md:w-48 h-2 md:h-3 bg-gold rounded-full shadow-xs"
-          />
-        </div>
-
-        {/* MAIN GRID LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* LEFT CONTENT COLUMN (Cols 5) */}
+          {/* LEFT CONTENT COLUMN (Cols 7) */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-6 z-20"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 flex flex-col gap-6"
           >
-            {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 bg-lilac/60 border border-violet/20 px-3.5 py-1.5 rounded-full w-max text-indigo text-xs font-semibold tracking-wider uppercase">
-              <MapPin size={13} className="text-violet" />
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 text-indigo text-xs font-semibold tracking-[0.12em] uppercase">
+              <span className="w-2 h-2 rounded-full bg-gold" />
               <span>Putat Jaya, Surabaya</span>
             </div>
 
-            <div className="space-y-4">
-              <h2 className="font-heading font-black text-3xl md:text-4xl lg:text-5xl text-ink leading-[1.15] tracking-tight">
-                Dari Kampung Dolly,<br />
-                <span className="text-indigo">untuk Cerita Baru.</span>
-              </h2>
-              <p className="text-gray-600 font-medium text-base md:text-lg leading-relaxed max-w-md">
-                Custom t-shirt, merchandise, dan pelatihan kreatif untuk mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
-              </p>
-            </div>
+            {/* Primary H1 Headline — Bricolage Grotesque 800, line-height 1.1, tracking -0.01em */}
+            <h1
+              className="font-heading font-extrabold text-ink text-4xl sm:text-5xl lg:text-[52px] leading-[1.1] tracking-[-0.01em] [text-wrap:balance]"
+            >
+              Dari Kampung Dolly,<br />
+              <span className="text-indigo">untuk Cerita Baru.</span>
+            </h1>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-1">
+            {/* Subtext — Plus Jakarta Sans 400, line-height 1.65, tracking 0 */}
+            <p className="font-sans font-normal text-gray-600 text-base md:text-lg leading-[1.65] max-w-xl">
+              Custom t-shirt, merchandise, dan pelatihan kreatif untuk mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
+            </p>
+
+            {/* Action Buttons — Primary + Secondary */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href={buildWaUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 bg-ink hover:bg-navy text-white font-sans font-semibold text-sm md:text-base px-7 py-3.5 rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <MessageCircle size={18} className="text-gold" />
+                <span>Pesan via WhatsApp</span>
+              </a>
+
               <Link
                 to="/produk"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo via-violet to-indigo text-white font-heading font-bold text-sm md:text-base px-7 py-3.5 rounded-full shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-ink font-sans font-semibold text-sm md:text-base px-6 py-3.5 rounded-full border border-gray-300 shadow-2xs hover:border-gray-400 transition-all duration-200"
               >
                 <span>Lihat Produk</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </Link>
-
-              <button
-                type="button"
-                onClick={() => setIsVideoOpen(true)}
-                className="inline-flex items-center gap-3 group text-ink hover:text-indigo font-bold text-sm md:text-base py-2 px-3 rounded-full transition-all"
-              >
-                <div className="w-11 h-11 rounded-full border-2 border-ink flex items-center justify-center bg-white/60 group-hover:bg-ink group-hover:text-white transition-all shadow-xs">
-                  <Play size={16} className="ml-0.5 fill-current" />
-                </div>
-                <span>Video Profil</span>
-              </button>
-            </div>
-
-            {/* Bottom Left Card Overlay (Mural Photo Card with Sura-Baya Asset) */}
-            <div className="mt-2 p-3 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-md flex items-center gap-4 max-w-sm">
-              <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-gray-200">
-                <img
-                  src="/sura-baya.png"
-                  alt="Kampung Dolly Mural"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <div className="flex -space-x-2 overflow-hidden mb-1">
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                </div>
-                <p className="font-heading font-bold text-xs text-ink">2K+ Pelanggan</p>
-                <p className="text-[11px] text-gray-500">& anggota komunitas</p>
-              </div>
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE T-SHIRT SHOWCASE STAGE (Cols 5) */}
-          <div className="lg:col-span-5 relative flex flex-col items-center justify-center min-h-[320px] md:min-h-[400px] my-4 lg:my-0">
-            
-            {/* Glowing Orbit Ring Effect */}
-            <div className="absolute w-64 h-64 md:w-88 md:h-88 rounded-full border-4 border-gold/30 animate-pulse pointer-events-none z-0 shadow-[0_0_40px_rgba(224,169,46,0.25)]" />
-            <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full border border-gray-300/40 pointer-events-none z-0" />
+          {/* RIGHT VISUAL SHOWCASE (Cols 5) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-5 relative flex items-center justify-center min-h-[340px] md:min-h-[400px]"
+          >
+            {/* Subtle background circle glow */}
+            <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-white shadow-xl border border-gray-100 pointer-events-none z-0" />
+            <div className="absolute w-80 h-80 md:w-[410px] md:h-[410px] rounded-full border border-gray-200/60 pointer-events-none z-0" />
 
-            {/* Mascot Floating Right Behind Shirt */}
+            {/* Mascot Sura & Baya (Clean Cutout, no checkerboard box) */}
             <motion.img
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: [0, -10, 0], opacity: 1 }}
-              transition={{
-                y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
-                opacity: { duration: 0.6 }
-              }}
+              initial={{ y: 15 }}
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
               src="/mascot.png"
-              alt="Maskot Dollyverse"
-              className="absolute right-0 md:-right-4 top-2 w-28 md:w-40 h-auto z-10 drop-shadow-xl pointer-events-none"
+              alt="Maskot Sura & Baya Dollyverse"
+              className="absolute right-0 top-0 w-28 md:w-40 h-auto z-10 drop-shadow-md pointer-events-none"
             />
 
-            {/* MAIN SINGLE T-SHIRT DISPLAY (mockup-2.png) */}
-            <div className="relative z-20 w-full flex items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="relative group"
-              >
-                <img
-                  src="/mockup-2.png"
-                  alt="Custom T-Shirt Dollyverse"
-                  className="w-64 md:w-80 lg:w-[360px] h-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] transition-transform duration-300 group-hover:scale-105"
-                />
-              </motion.div>
-            </div>
-
-            {/* Bottom Right Floating Action Orb "Lihat Prosesnya?" */}
-            <Link
-              to="/layanan"
-              className="absolute -bottom-4 right-0 lg:-right-6 z-30 w-24 h-24 md:w-28 md:h-28 rounded-full bg-gold text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
-            >
-              <span className="text-base md:text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-              <span>Lihat Prosesnya?</span>
-            </Link>
-          </div>
-
-          {/* RIGHT VERTICAL INDEX MENU (Cols 2) */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="lg:col-span-2 hidden lg:flex flex-col justify-center items-end gap-6 z-20 pl-2 border-l border-gray-200/60"
-          >
-            <div className="w-full space-y-4">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest text-right mb-2">
-                Kategori
-              </p>
-              {categories.map((cat) => (
-                <Link
-                  key={cat.id}
-                  to={cat.link}
-                  className="group flex items-center justify-end gap-2 text-right text-gray-600 hover:text-ink transition-colors py-1"
-                >
-                  <span className="font-heading font-bold text-xs md:text-sm group-hover:translate-x-[-3px] transition-transform">
-                    {cat.title}
-                  </span>
-                  <span className="font-mono text-xs text-gray-400 group-hover:text-gold font-bold">
-                    /{cat.id}
-                  </span>
-                </Link>
-              ))}
+            {/* Main T-Shirt Mockup */}
+            <div className="relative z-20">
+              <img
+                src="/mockup-2.png"
+                alt="Kaos Custom KUB Dollyverse"
+                className="w-72 md:w-88 lg:w-[380px] h-auto object-contain drop-shadow-2xl transition-transform duration-300 hover:scale-105"
+              />
             </div>
           </motion.div>
 
         </div>
       </div>
-
-      {/* VIDEO MODAL LIGHTBOX */}
-      <AnimatePresence>
-        {isVideoOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-ink/80 backdrop-blur-md flex items-center justify-center p-4"
-            onClick={() => setIsVideoOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-ink border border-white/10 rounded-3xl overflow-hidden max-w-3xl w-full p-6 relative shadow-2xl"
-            >
-              <button
-                type="button"
-                onClick={() => setIsVideoOpen(false)}
-                className="absolute top-4 right-4 text-white/70 hover:text-white p-2 rounded-full bg-white/10"
-              >
-                <X size={20} />
-              </button>
-              <h3 className="font-heading font-bold text-xl text-white mb-4 flex items-center gap-2">
-                <Sparkles className="text-gold" size={20} />
-                Profil KUB Dollyverse Surabaya
-              </h3>
-              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-white/10">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-                  title="Video Profil Dollyverse"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <p className="text-white/60 text-sm mt-4 text-center">
-                Melihat langsung semangat pemuda RW 12 Putat Jaya merintis usaha sablon digital bernilai sosial.
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   )
 }
