@@ -17,15 +17,19 @@ export default function Hero() {
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
-      {/* ABSOLUTE BACKGROUND LAYER: GIANT "KUB DOLLYVERSE." TYPOGRAPHY (Rotated -2deg, No flow displacement) */}
-      <div className="absolute top-20 md:top-24 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
+      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES (Rotated -2deg, Compact sizing) */}
+      <div className="absolute top-16 md:top-20 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-display font-black text-ink tracking-tighter text-[11.5vw] lg:text-[10vw] leading-[0.82] uppercase text-left"
+          className="font-display font-black text-ink tracking-tighter text-5xl sm:text-6xl md:text-7xl lg:text-[84px] leading-[0.88] uppercase text-left block"
         >
-          KUB DOLLYVERSE<span className="text-lime">.</span>
+          <span>KUB</span>
+          <br />
+          <span>
+            DOLLYVERSE<span className="text-lime">.</span>
+          </span>
         </motion.h1>
 
         {/* Underline swoosh stroke */}
@@ -33,7 +37,7 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="origin-left mt-2 ml-1 lg:ml-4 w-44 md:w-80 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
+          className="origin-left mt-2 ml-1 lg:ml-2 w-44 md:w-72 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
         />
       </div>
 
@@ -99,10 +103,10 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE T-SHIRT SHOWCASE (Overlapping the lower background typography, Orbit CSS rings removed) */}
+          {/* RIGHT SIDE T-SHIRT SHOWCASE */}
           <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-center min-h-[380px] md:min-h-[460px] my-2 lg:my-0 z-20">
             
-            {/* T-SHIRT MOCKUP (Contains native orbital elements in asset) */}
+            {/* T-SHIRT MOCKUP */}
             <div className="relative z-20 flex items-center justify-end">
               <motion.div
                 initial={{ opacity: 0, y: -20, scale: 0.85 }}
