@@ -1,11 +1,11 @@
 // src/components/home/Hero.jsx
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Play, Sparkles, X } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Play, Sparkles, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
     <section
@@ -17,13 +17,42 @@ export default function Hero() {
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
+      {/* VERTICAL SERVICE INDEX — anak langsung <section>, top relatif terhadap section */}
+      <motion.nav
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: 0.5 }}
+        aria-label="Layanan kami"
+        className="hidden xl:flex absolute top-44 right-10 2xl:right-[20%] flex-col z-30"
+      >
+        {[
+          { label: 'Custom T-Shirt',   num: '01', href: '/produk' },
+          { label: 'Merchandise',      num: '02', href: '/produk' },
+          { label: 'Pelatihan Kreatif', num: '03', href: '/layanan' },
+          { label: 'Komunitas',        num: '04', href: '/tentang' },
+        ].map((item) => (
+          <Link
+            key={item.num}
+            to={item.href}
+            className="group flex items-center justify-between gap-8 pl-3 py-2.5 border-l border-ink/20 hover:border-lime transition-colors duration-200"
+          >
+            <span className="font-heading font-semibold text-sm text-ink/70 group-hover:text-ink transition-colors duration-200 whitespace-nowrap">
+              {item.label}
+            </span>
+            <span className="font-mono text-xs text-ink/40 group-hover:text-ink transition-colors duration-200 tabular-nums">
+              /{item.num}
+            </span>
+          </Link>
+        ))}
+      </motion.nav>
+
       {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES */}
-      <div className="absolute top-28 md:top-32 lg:top-36 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
+      <div className="absolute top-28 md:top-32 lg:top-36 left-10 md:left-20 lg:left-32 xl:left-40 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-display font-black text-ink tracking-tighter text-[9vw] lg:text-[7vw] leading-[0.84] uppercase text-left block"
+          className="font-display font-black text-ink tracking-tight text-[9vw] lg:text-[7vw] leading-[0.95] uppercase text-left block"
         >
           <span>KUB</span>
           <br />
@@ -43,10 +72,8 @@ export default function Hero() {
 
       {/* MAIN CONTENT COMPOSITION */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-center pt-28 md:pt-36">
-        
         {/* MAIN LAYOUT GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-1 my-2 md:my-0">
-          
           {/* LEFT CONTENT COLUMN */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -56,11 +83,13 @@ export default function Hero() {
           >
             <div className="space-y-4">
               <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] text-ink leading-[1.05]">
-                Dari Kampung Dolly,<br />
+                Dari Kampung Dolly,
+                <br />
                 <span className="text-navy">untuk Cerita Baru.</span>
               </h2>
               <p className="text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed max-w-sm md:max-w-md lg:max-w-lg">
-                Custom t-shirt, merchandise, dan pelatihan kreatif untuk mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
+                Custom t-shirt, merchandise, dan pelatihan kreatif untuk
+                mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
               </p>
             </div>
 
@@ -89,7 +118,7 @@ export default function Hero() {
 
           {/* RIGHT SIDE T-SHIRT SHOWCASE */}
           <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-center min-h-[380px] md:min-h-[460px] my-2 lg:my-0 z-20">
-            
+
             {/* T-SHIRT MOCKUP */}
             <div className="relative z-20 flex items-center justify-end">
               <motion.div
@@ -101,7 +130,7 @@ export default function Hero() {
                 <img
                   src="/mockup-2.png"
                   alt="Custom T-Shirt KUB Dollyverse"
-                  className="w-76 sm:w-[440px] md:w-[540px] lg:w-[620px] h-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
+                  className="w-76 sm:w-[440px] md:w-[540px] lg:w-[600px] xl:w-[680px] 2xl:w-[740px] h-auto max-w-none object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.24)] transition-transform duration-300 group-hover:scale-105"
                 />
               </motion.div>
             </div>
@@ -111,11 +140,12 @@ export default function Hero() {
               to="/layanan"
               className="absolute -bottom-6 right-0 lg:right-4 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
             >
-              <span className="text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+              <span className="text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                ↗
+              </span>
               <span>Lihat Prosesnya?</span>
             </Link>
           </div>
-
         </div>
       </div>
 
@@ -157,12 +187,13 @@ export default function Hero() {
                 />
               </div>
               <p className="text-white/60 text-sm mt-4 text-center">
-                Melihat langsung semangat pemuda RW 12 Putat Jaya merintis usaha sablon digital bernilai sosial.
+                Melihat langsung semangat pemuda RW 12 Putat Jaya merintis usaha
+                sablon digital bernilai sosial.
               </p>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </section>
-  )
+  );
 }
