@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
-      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." (Positioned slightly right & down, 9vw/7vw size, -2deg rotation) */}
+      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES */}
       <div className="absolute top-28 md:top-32 lg:top-36 left-8 md:left-16 lg:left-24 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
@@ -41,18 +41,18 @@ export default function Hero() {
         />
       </div>
 
-      {/* MAIN CONTENT COMPOSITION (Overlapping the lower background typography) */}
+      {/* MAIN CONTENT COMPOSITION */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-center pt-28 md:pt-36">
         
         {/* MAIN LAYOUT GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-1 my-2 md:my-0">
           
-          {/* LEFT CONTENT COLUMN */}
+          {/* LEFT CONTENT COLUMN (Shifted slightly LEFT, social proof card removed) */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-5 z-20"
+            className="lg:col-span-5 flex flex-col gap-5 z-20 lg:-ml-8"
           >
             <div className="space-y-2.5">
               <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-ink leading-tight">
@@ -84,22 +84,6 @@ export default function Hero() {
                 </div>
                 <span>Video Profil</span>
               </button>
-            </div>
-
-            {/* Bottom Left Community Badge Overlay */}
-            <div className="mt-1 p-2.5 bg-white/90 backdrop-blur-md rounded-xl border border-gray-200/80 shadow-md flex items-center gap-3 max-w-xs">
-              <div className="w-11 h-11 rounded-lg border border-gray-200 bg-gray-100 flex items-center justify-center font-heading font-extrabold text-indigo text-xs shrink-0">
-                2K+
-              </div>
-              <div>
-                <div className="flex -space-x-1.5 overflow-hidden mb-0.5">
-                  <img className="inline-block h-5 w-5 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                  <img className="inline-block h-5 w-5 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                  <img className="inline-block h-5 w-5 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
-                </div>
-                <p className="font-heading font-bold text-[11px] text-ink">2K+ Pelanggan</p>
-                <p className="text-[10px] text-gray-500">& anggota komunitas</p>
-              </div>
             </div>
           </motion.div>
 
