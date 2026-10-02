@@ -47,15 +47,15 @@ export default function Hero() {
         {/* MAIN LAYOUT GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-1 my-2 md:my-0">
           
-          {/* LEFT CONTENT COLUMN (Shifted slightly LEFT, social proof card removed) */}
+          {/* LEFT CONTENT COLUMN */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-5 z-20 lg:-ml-8"
+            className="lg:col-span-5 flex flex-col gap-5 z-20 lg:-ml-20"
           >
             <div className="space-y-2.5">
-              <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-ink leading-tight">
+              <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-[36px] text-ink leading-tight">
                 Dari Kampung Dolly,<br />
                 <span className="text-navy">untuk Cerita Baru.</span>
               </h2>
