@@ -1,7 +1,7 @@
 // src/components/home/Hero.jsx
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Play, Sparkles, X } from 'lucide-react'
+import { ArrowRight, Play, Sparkles, X, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const categories = [
@@ -17,22 +17,22 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden bg-[#FAF9F5] text-ink flex flex-col justify-between"
+      className="relative min-h-[88vh] pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden bg-[#FAF9F5] text-ink flex flex-col justify-between"
       aria-label="Hero section"
     >
-      {/* Background Decorative Blur Gradients */}
+      {/* Ambient Glow Gradients */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[70vw] h-[400px] bg-gradient-to-b from-gold/15 via-violet/10 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
       <div className="absolute top-1/3 right-10 w-80 h-80 bg-indigo/10 blur-3xl pointer-events-none z-0 rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-center">
         
-        {/* TOP TYPOGRAPHY: KUB DOLLYVERSE. (Balanced size) */}
+        {/* TOP TYPOGRAPHY: KUB DOLLYVERSE. */}
         <div className="relative w-full text-center lg:text-left select-none mb-6 md:mb-8">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="font-heading font-black text-ink tracking-tighter text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight uppercase"
+            className="font-heading font-black text-ink tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase"
           >
             KUB DOLLYVERSE<span className="text-gold">.</span>
           </motion.h1>
@@ -42,7 +42,7 @@ export default function Hero() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="origin-left mt-2 lg:ml-2 w-36 md:w-56 h-2.5 md:h-3.5 bg-gold rounded-full shadow-sm"
+            className="origin-left mt-2 lg:ml-1 w-32 md:w-48 h-2 md:h-3 bg-gold rounded-full shadow-xs"
           />
         </div>
 
@@ -56,21 +56,27 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5 flex flex-col gap-6 z-20"
           >
-            <div className="space-y-3">
-              <h2 className="font-heading font-extrabold text-2xl md:text-3xl lg:text-4xl text-ink leading-tight">
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 bg-lilac/60 border border-violet/20 px-3.5 py-1.5 rounded-full w-max text-indigo text-xs font-semibold tracking-wider uppercase">
+              <MapPin size={13} className="text-violet" />
+              <span>Putat Jaya, Surabaya</span>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="font-heading font-black text-3xl md:text-4xl lg:text-5xl text-ink leading-[1.15] tracking-tight">
                 Dari Kampung Dolly,<br />
-                <span className="text-navy">untuk Cerita Baru.</span>
+                <span className="text-indigo">untuk Cerita Baru.</span>
               </h2>
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+              <p className="text-gray-600 font-medium text-base md:text-lg leading-relaxed max-w-md">
                 Custom t-shirt, merchandise, dan pelatihan kreatif untuk mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-4 pt-1">
               <Link
                 to="/produk"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo via-violet to-indigo text-white font-heading font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo via-violet to-indigo text-white font-heading font-bold text-sm md:text-base px-7 py-3.5 rounded-full shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <span>Lihat Produk</span>
                 <ArrowRight size={18} />
@@ -81,7 +87,7 @@ export default function Hero() {
                 onClick={() => setIsVideoOpen(true)}
                 className="inline-flex items-center gap-3 group text-ink hover:text-indigo font-bold text-sm md:text-base py-2 px-3 rounded-full transition-all"
               >
-                <div className="w-11 h-11 rounded-full border-2 border-ink flex items-center justify-center bg-white/60 group-hover:bg-ink group-hover:text-white transition-all shadow-sm">
+                <div className="w-11 h-11 rounded-full border-2 border-ink flex items-center justify-center bg-white/60 group-hover:bg-ink group-hover:text-white transition-all shadow-xs">
                   <Play size={16} className="ml-0.5 fill-current" />
                 </div>
                 <span>Video Profil</span>
@@ -89,8 +95,8 @@ export default function Hero() {
             </div>
 
             {/* Bottom Left Card Overlay (Mural Photo Card with Sura-Baya Asset) */}
-            <div className="mt-2 p-3 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-lg flex items-center gap-4 max-w-sm">
-              <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-gray-200">
+            <div className="mt-2 p-3 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-md flex items-center gap-4 max-w-sm">
+              <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-gray-200">
                 <img
                   src="/sura-baya.png"
                   alt="Kampung Dolly Mural"
@@ -112,13 +118,8 @@ export default function Hero() {
           {/* RIGHT SIDE T-SHIRT SHOWCASE STAGE (Cols 5) */}
           <div className="lg:col-span-5 relative flex flex-col items-center justify-center min-h-[320px] md:min-h-[400px] my-4 lg:my-0">
             
-            {/* Background Landmark Image (Kota Lama / Surabaya) */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-44 md:w-56 h-56 md:h-72 rounded-3xl overflow-hidden opacity-25 grayscale hover:grayscale-0 transition-all duration-500 z-0 pointer-events-none">
-              <img src="/kotalama.png" alt="Landmark Kota Lama" className="w-full h-full object-cover" />
-            </div>
-
             {/* Glowing Orbit Ring Effect */}
-            <div className="absolute w-64 h-64 md:w-88 md:h-88 rounded-full border-4 border-gold/40 animate-pulse pointer-events-none z-0 shadow-[0_0_40px_rgba(224,169,46,0.3)]" />
+            <div className="absolute w-64 h-64 md:w-88 md:h-88 rounded-full border-4 border-gold/30 animate-pulse pointer-events-none z-0 shadow-[0_0_40px_rgba(224,169,46,0.25)]" />
             <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full border border-gray-300/40 pointer-events-none z-0" />
 
             {/* Mascot Floating Right Behind Shirt */}
@@ -131,7 +132,7 @@ export default function Hero() {
               }}
               src="/mascot.png"
               alt="Maskot Dollyverse"
-              className="absolute right-0 md:-right-4 top-2 w-24 md:w-36 h-auto z-10 drop-shadow-xl pointer-events-none"
+              className="absolute right-0 md:-right-4 top-2 w-28 md:w-40 h-auto z-10 drop-shadow-xl pointer-events-none"
             />
 
             {/* MAIN SINGLE T-SHIRT DISPLAY (mockup-2.png) */}
@@ -147,12 +148,6 @@ export default function Hero() {
                   alt="Custom T-Shirt Dollyverse"
                   className="w-64 md:w-80 lg:w-[360px] h-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] transition-transform duration-300 group-hover:scale-105"
                 />
-                
-                {/* Floating badge label on shirt */}
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-ink/90 text-white backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold shadow-xl border border-white/20 whitespace-nowrap flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
-                  <span>KUB Dollyverse Custom T-Shirt</span>
-                </div>
               </motion.div>
             </div>
 
