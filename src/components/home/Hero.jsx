@@ -13,14 +13,14 @@ export default function Hero() {
       className="relative min-h-screen pt-24 md:pt-28 pb-10 overflow-hidden bg-[#FAF9F5] text-ink flex flex-col justify-center"
       aria-label="Hero section"
     >
-      {/* Ambient Blur Glow Gradients (Violet/Indigo primary, subtle Gold accent) */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-violet/20 via-indigo/10 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/10 blur-3xl pointer-events-none z-0 rounded-full" />
+      {/* Ambient Blur Glow Gradients */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[85vw] h-[550px] bg-gradient-to-b from-lime/25 via-violet/15 to-transparent blur-3xl pointer-events-none z-0 rounded-full" />
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold/15 blur-3xl pointer-events-none z-0 rounded-full" />
 
-      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." ON TWO SEPARATE LINES (Rotated -2deg, Positioned slightly downward) */}
-      <div className="absolute top-24 md:top-28 lg:top-32 left-4 md:left-8 lg:left-12 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
+      {/* ABSOLUTE BACKGROUND LAYER: "KUB" & "DOLLYVERSE." (Positioned slightly right & down, 9vw/7vw size, -2deg rotation) */}
+      <div className="absolute top-28 md:top-32 lg:top-36 left-8 md:left-16 lg:left-24 right-4 z-0 select-none pointer-events-none -rotate-2 origin-top-left">
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="font-display font-black text-ink tracking-tighter text-[9vw] lg:text-[7vw] leading-[0.84] uppercase text-left block"
@@ -28,7 +28,7 @@ export default function Hero() {
           <span>KUB</span>
           <br />
           <span>
-            DOLLYVERSE<span className="text-gold">.</span>
+            DOLLYVERSE<span className="text-lime">.</span>
           </span>
         </motion.h1>
 
@@ -37,11 +37,11 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="origin-left mt-2 ml-1 lg:ml-2 w-44 md:w-72 h-3 md:h-3.5 bg-gold rounded-full shadow-xs"
+          className="origin-left mt-2 ml-1 lg:ml-2 w-44 md:w-72 h-3 md:h-3.5 bg-lime rounded-full shadow-sm"
         />
       </div>
 
-      {/* MAIN CONTENT COMPOSITION (Overlapping lower background typography) */}
+      {/* MAIN CONTENT COMPOSITION (Overlapping the lower background typography) */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full flex-1 flex flex-col justify-center pt-28 md:pt-36">
         
         {/* MAIN LAYOUT GRID */}
@@ -59,7 +59,7 @@ export default function Hero() {
                 Dari Kampung Dolly,<br />
                 <span className="text-navy">untuk Cerita Baru.</span>
               </h2>
-              <p className="font-sans text-gray-600 text-xs md:text-sm leading-relaxed max-w-xs md:max-w-sm">
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed max-w-xs md:max-w-sm">
                 Custom t-shirt, merchandise, dan pelatihan kreatif untuk mendukung ekonomi warga RW 12 Putat Jaya, Surabaya.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
                 to="/produk"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo to-violet hover:from-indigo/90 hover:to-violet/90 text-white font-sans font-bold text-xs md:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-lime hover:bg-[#c5f028] text-ink font-heading font-extrabold text-xs md:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <span>Lihat Produk</span>
                 <ArrowRight size={16} />
@@ -98,28 +98,15 @@ export default function Hero() {
                   <img className="inline-block h-5 w-5 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Customer avatar" />
                 </div>
                 <p className="font-heading font-bold text-[11px] text-ink">2K+ Pelanggan</p>
-                <p className="font-sans text-[10px] text-gray-500">& anggota komunitas</p>
+                <p className="text-[10px] text-gray-500">& anggota komunitas</p>
               </div>
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE SHOWCASE (T-Shirt as main object + Mascot peeking behind) */}
+          {/* RIGHT SIDE T-SHIRT SHOWCASE */}
           <div className="lg:col-span-7 relative flex flex-col items-center lg:items-end justify-center min-h-[380px] md:min-h-[460px] my-2 lg:my-0 z-20">
             
-            {/* Mascot Sura & Baya (Secondary brand element peeking behind shirt) */}
-            <motion.img
-              initial={{ y: 15, opacity: 0 }}
-              animate={{ y: [0, -8, 0], opacity: 1 }}
-              transition={{
-                y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
-                opacity: { duration: 0.6 }
-              }}
-              src="/mascot.png"
-              alt="Maskot Sura & Baya Dollyverse"
-              className="absolute right-4 md:right-8 top-2 w-28 md:w-36 h-auto z-10 drop-shadow-md pointer-events-none"
-            />
-
-            {/* MAIN T-SHIRT MOCKUP (Primary visual object) */}
+            {/* T-SHIRT MOCKUP */}
             <div className="relative z-20 flex items-center justify-end">
               <motion.div
                 initial={{ opacity: 0, y: -20, scale: 0.85 }}
@@ -138,7 +125,7 @@ export default function Hero() {
             {/* Bottom Right Floating Action Orb "Lihat Prosesnya?" */}
             <Link
               to="/layanan"
-              className="absolute -bottom-6 right-0 lg:right-4 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-gold text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
+              className="absolute -bottom-6 right-0 lg:right-4 z-30 w-28 h-28 md:w-32 md:h-32 rounded-full bg-lime text-ink font-heading font-black text-xs md:text-sm p-4 flex flex-col items-center justify-center text-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-4 border-white"
             >
               <span className="text-lg md:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
               <span>Lihat Prosesnya?</span>
@@ -173,7 +160,7 @@ export default function Hero() {
                 <X size={20} />
               </button>
               <h3 className="font-heading font-bold text-xl text-white mb-4 flex items-center gap-2">
-                <Sparkles className="text-gold" size={20} />
+                <Sparkles className="text-lime" size={20} />
                 Profil KUB Dollyverse Surabaya
               </h3>
               <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-white/10">
